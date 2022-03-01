@@ -3,6 +3,7 @@ console.clear()
 const fs= require('fs')
 const path=require('path')
 const dirPath=path.join(__dirname,'dataExcel')
+
 // obtenir la liste des fichiers xlsx
 var listFiles=fs.readdirSync(dirPath)
 // console.log(listFiles);
@@ -21,12 +22,11 @@ function rapportTitreFiltre(fileList){
 // lecture fichier excel
 var  xlsx= require("xlsx")
 const fileName='Rapport-PRDD-20220301-0901.xlsx'
-
- console.log(importExcelData(fileName, dirPath)); 
+//  console.log(importExcelData(fileName, dirPath)); 
 
 function importExcelData(nameOfFile, direrctoryfile){
-    var wb=xlsx.readFile(dirPath+'/'+fileName,{cellDates:true})
-    var nomsPages=wb.SheetNames
+    let wb=xlsx.readFile(dirPath+'/'+fileName,{cellDates:true})
+    let nomsPages=wb.SheetNames
     // lecture de la feuil par defautl
     ws=wb.Sheets[nomsPages[0]]
     //convertir à json
@@ -36,8 +36,28 @@ function importExcelData(nameOfFile, direrctoryfile){
     return data
 }
 
+function concatinerData(dataToConcat){
+    let fileName='global.xlsx'
+    let storeDirPath=path.join(__dirname,'dataExelGlobal')
+    let initStoreData=importExcelData(fileName,storeDirPath)
+    console.log(initStoreData.length); 
+    return initStoreData.concat(dataToConcat)
+}
 
 
+const fileName1='Rapport-PRDD-20220301-0901.xlsx'
+const fileName2='Rapport-PRDD-20170201-0803.xlsx'
+var data1=importExcelData(fileName1, dirPath)
+var data2=importExcelData(fileName2, dirPath)
+
+concatinerData(data2).length
+for(let i=0; i<10;i++){
+    var data1=importExcelData(fileName1, dirPath)
+    concatinerData(data1)
+}
+
+// console.log(concatinerData(data2).length);
+// console.log(concatinerData(data1).length); 
 
 
 
