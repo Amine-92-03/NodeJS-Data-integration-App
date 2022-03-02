@@ -1,5 +1,23 @@
 {
   "dependencies": {
+    "csv-writer": "^1.6.0",
     "xlsx": "^0.18.2"
-  }
+  },
+  "name": "nodejs-data-integration-app",
+  "description": "application pour assembler et intégrer les données \r une partie du projet Flow Control",
+  "version": "1.0.0",
+  "main": "NodeEngine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amine-92-03/NodeJS-Data-integration-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amine-92-03/NodeJS-Data-integration-App/issues"
+  },
+  "homepage": "https://github.com/Amine-92-03/NodeJS-Data-integration-App#readme"
 }

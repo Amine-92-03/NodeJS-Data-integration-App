@@ -3,7 +3,7 @@ console.clear()
 const fs= require('fs')
 const path=require('path')
 const dirPath=path.join(__dirname,'dataExcel')
-
+// console.log(dirPath);
 // obtenir la liste des fichiers xlsx
 var listFiles=fs.readdirSync(dirPath)
 // console.log(listFiles);
@@ -25,7 +25,7 @@ const fileName='Rapport-PRDD-20220301-0901.xlsx'
 //  console.log(importExcelData(fileName, dirPath)); 
 
 function importExcelData(nameOfFile, direrctoryfile){
-    let wb=xlsx.readFile(dirPath+'/'+fileName,{cellDates:true})
+    let wb=xlsx.readFile(direrctoryfile+'/'+nameOfFile,{cellDates:true})
     let nomsPages=wb.SheetNames
     // lecture de la feuil par defautl
     ws=wb.Sheets[nomsPages[0]]
@@ -38,10 +38,9 @@ function importExcelData(nameOfFile, direrctoryfile){
 
 function concatinerData(dataToConcat){
     let fileName='global.xlsx'
-    let storeDirPath=path.join(__dirname,'dataExelGlobal')
-    let initStoreData=importExcelData(fileName,storeDirPath)
-    console.log(initStoreData.length); 
-    return initStoreData.concat(dataToConcat)
+    let storeDirPath=path.join(__dirname,'dataExelGlobal',fileName)
+    let dataStr=JSON.stringify(dataToConcat)
+    fs.appendFileSync('dataExcelGlobal/global.csv',dataStr + '\n ;')
 }
 
 const fileName1='Rapport-PRDD-20220301-0901.xlsx'
@@ -49,14 +48,13 @@ const fileName2='Rapport-PRDD-20170201-0803.xlsx'
 var data1=importExcelData(fileName1, dirPath)
 var data2=importExcelData(fileName2, dirPath)
 
-concatinerData(data2).length
-for(let i=0; i<10;i++){
-    var data1=importExcelData(fileName1, dirPath)
-    concatinerData(data1)
-}
 
-// console.log(concatinerData(data2).length);
-// console.log(concatinerData(data1).length); 
+console.log('began csv write');
+
+concatinerData(data2)
+
+
+ 
 
 
 
