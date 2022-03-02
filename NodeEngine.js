@@ -44,7 +44,6 @@ function concatinerData(dataToConcat){
     return initStoreData.concat(dataToConcat)
 }
 
-
 const fileName1='Rapport-PRDD-20220301-0901.xlsx'
 const fileName2='Rapport-PRDD-20170201-0803.xlsx'
 var data1=importExcelData(fileName1, dirPath)
