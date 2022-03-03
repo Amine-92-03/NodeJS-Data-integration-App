@@ -1,0 +1,52 @@
+                    Dimensionnement Bac à Sable
+                    ___________________________
+
+Colonnes existantes:
+_____________________
+Domaine => char
+Serveur => char
+Tache => char
+MU => char
+Unité de gestion =>char
+sess => char
+Session => char
+Job => char
+Uproc => char
+Statut =>char
+Prévu => Datetime
+Début => Datetime
+Fin => Datetime
+Durée => Datetime
+Temps estimé => Datetime
+Fil rouge => numeric
+Info => char
+_________________________
+Colonnes supplimentaires
+_________________________
+Date création fichier => Datetime
+Date dernière modification =>Datetime
+ID jour => numeric
+Flag Fichier => numeric (1,2,3)
+Nom du fichier =>char
+ID => numeric Key auto 
+Nombre de lignes => numeric
+Taille fichier => numeric
+Auteur fichier => char
+ID fichier => numeric ( AAAAMMJJHHMMF) =>(F : Flag (1,2,3))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
